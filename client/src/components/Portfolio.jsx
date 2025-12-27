@@ -27,7 +27,16 @@ import {
   ChartBar, 
   Shield, 
   Globe, 
-  Database 
+  Database,
+  Cloud,
+  Activity,
+  Eye,
+  ExternalLink,
+  User,
+  MessageSquare,
+  Send,
+  Phone,
+  MapPin
 } from 'lucide-react';
 
 export default function Portfolio() {
@@ -41,6 +50,12 @@ export default function Portfolio() {
   const [selectedDashboard, setSelectedDashboard] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   const [selectedSkillArea, setSelectedSkillArea] = useState('all');
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -52,98 +67,98 @@ export default function Portfolio() {
 
   const skills = {
     dataAnalyst: [
-      { name: 'Python (Pandas, NumPy)', level: 90 },
-      { name: 'SQL & Databases', level: 95 },
-      { name: 'Power BI & Tableau', level: 88 },
-      { name: 'Statistical Analysis', level: 85 },
-      { name: 'Data Visualization', level: 92 },
-      { name: 'Excel Wizardry', level: 97 }
+      { name: 'Power BI', level: 95 },
+      { name: 'Tableau', level: 92 },
+      { name: 'Excel', level: 97 },
+      { name: 'Google Sheets', level: 94 },
+      { name: 'SQL', level: 93 },
+      { name: 'Python (Pandas, NumPy)', level: 90 }
     ],
-    itSupport: [
-      { name: 'Windows & Linux', level: 93 },
-      { name: 'Network Ninja Skills', level: 87 },
-      { name: 'Hardware & Software', level: 90 },
-      { name: 'Active Directory', level: 89 },
-      { name: 'Cybersecurity', level: 85 },
-      { name: 'Cloud (AWS, Azure)', level: 88 }
+    visualization: [
+      { name: 'Power BI', level: 95 },
+      { name: 'Tableau', level: 92 },
+      { name: 'Looker Studio', level: 89 },
+      { name: 'Matplotlib', level: 87 },
+      { name: 'Seaborn', level: 88 }
     ],
-    digitalMarketing: [
-      { name: 'SEO & SEM Mastery', level: 91 },
-      { name: 'Google Analytics', level: 94 },
-      { name: 'Social Media Magic', level: 89 },
-      { name: 'Content Strategy', level: 87 },
-      { name: 'Email Campaigns', level: 92 },
-      { name: 'Marketing Automation', level: 86 }
+    dataTracking: [
+      { name: 'GA4', level: 93 },
+      { name: 'GTM', level: 91 },
+      { name: 'APIs', level: 89 }
+    ],
+    cloudAI: [
+      { name: 'Oracle', level: 88 },
+      { name: 'Databricks', level: 85 }
     ]
   };
 
   const dashboards = [
-  {
-    title: 'Heroes Campaign Dashboard',
-    description: 'Comprehensive Excel dashboard for campaign analysis',
-    icon: ChartBar,
-    downloadUrl: '/assets/dashboards/Dashboard Data (HEROES.xlsx', 
-    previewUrl: 'https://res.cloudinary.com/dxwzdftzm/raw/upload/v1765288665/Dashboard_Data_HEROES_igmnok.xlsx', 
-    color: 'from-red-500 to-pink-500',
-    category: 'Excel Dashboard'
-  },
-  {
-    title: 'Marvel MCU Dashboard',
-    description: 'Interactive dashboard analyzing MCU data',
-    icon: Shield,
-    downloadUrl: '/assets/dashboards/MCU DASHBOARD.xlsx', 
-    previewUrl: 'https://res.cloudinary.com/dxwzdftzm/raw/upload/v1765288812/MCU_DASHBOARD_esmatu.xlsx',
-    color: 'from-blue-500 to-indigo-500',
-    category: 'Excel Dashboard'
-  }
-];
+    {
+      title: 'Heroes Campaign Dashboard',
+      description: 'Comprehensive Excel dashboard for campaign analysis',
+      icon: ChartBar,
+      downloadUrl: '/assets/dashboards/Dashboard Data (HEROES.xlsx', 
+      previewUrl: 'https://res.cloudinary.com/dxwzdftzm/raw/upload/v1765288665/Dashboard_Data_HEROES_igmnok.xlsx', 
+      color: 'from-red-500 to-pink-500',
+      category: 'Excel Dashboard'
+    },
+    {
+      title: 'Marvel MCU Dashboard',
+      description: 'Interactive dashboard analyzing MCU data',
+      icon: Shield,
+      downloadUrl: '/assets/dashboards/MCU DASHBOARD.xlsx', 
+      previewUrl: 'https://res.cloudinary.com/dxwzdftzm/raw/upload/v1765288812/MCU_DASHBOARD_esmatu.xlsx',
+      color: 'from-blue-500 to-indigo-500',
+      category: 'Excel Dashboard'
+    }
+  ];
 
   const posters = [
-  {
-    title: 'Bluecover Father\'s Day',
-    imageUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/v1765285343/BLUECOVER_FATHER_S_DAY_tvkeaw.png",
-    downloadUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765285343/BLUECOVER_FATHER_S_DAY_tvkeaw.png",
-    category: 'Marketing Campaign',
-    color: 'from-blue-500 to-cyan-500'
-  },
-  {
-    title: 'Maestroville Father\'s Day',
-    imageUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/v1765285370/MAESTRO_FATHER_S_DAY2_o668rk.png",
-    downloadUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765285370/MAESTRO_FATHER_S_DAY2_o668rk.png",
-    category: 'Marketing Campaign',
-    color: 'from-purple-500 to-pink-500'
-  },
-  {
-    title: 'Undersea Campaign',
-    imageUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/v1765285387/UNDERSEA_nvoehh.png",
-    downloadUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765285387/UNDERSEA_nvoehh.png",
-    category: 'Creative Design',
-    color: 'from-teal-500 to-blue-500'
-  }
-];
+    {
+      title: 'Bluecover Father\'s Day',
+      imageUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/v1765285343/BLUECOVER_FATHER_S_DAY_tvkeaw.png",
+      downloadUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765285343/BLUECOVER_FATHER_S_DAY_tvkeaw.png",
+      category: 'Marketing Campaign',
+      color: 'from-blue-500 to-cyan-500'
+    },
+    {
+      title: 'Maestroville Father\'s Day',
+      imageUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/v1765285370/MAESTRO_FATHER_S_DAY2_o668rk.png",
+      downloadUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765285370/MAESTRO_FATHER_S_DAY2_o668rk.png",
+      category: 'Marketing Campaign',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      title: 'Undersea Campaign',
+      imageUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/v1765285387/UNDERSEA_nvoehh.png",
+      downloadUrl: "https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765285387/UNDERSEA_nvoehh.png",
+      category: 'Creative Design',
+      color: 'from-teal-500 to-blue-500'
+    }
+  ];
 
   const certifications = [
-  {
-    title: 'BCG Forage GenAI Certificate',
-    description: 'Awarded for completing a job simulation in GenAI and data processing for BCG via Forage.',
-    icon: Award,
-    viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1765290012/BCG-FORAGE_GEN_AI_CERTIFICATE_aqemie.pdf',
-    downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765290012/BCG-FORAGE_GEN_AI_CERTIFICATE_aqemie.pdf',
-    color: 'from-red-500 to-orange-500',
-    issuer: 'BCG via Forage',
-    date: '2025'
-  },
-  {
-    title: 'Delloitte Data Analytics Professional',
-    description: 'Comprehensive data analytics certification Delloitte',
-    icon: Award,
-    viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1765290012/DELOITTE_DATA_ANALYTICS_lbhwnj.pdf',
-    downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765290012/DELOITTE_DATA_ANALYTICS_lbhwnj.pdf',
-    color: 'from-blue-500 to-cyan-500',
-    issuer: 'Delloitte',
-    date: '2025'
-  }
-];
+    {
+      title: 'BCG Forage GenAI Certificate',
+      description: 'Awarded for completing a job simulation in GenAI and data processing for BCG via Forage.',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1765290012/BCG-FORAGE_GEN_AI_CERTIFICATE_aqemie.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765290012/BCG-FORAGE_GEN_AI_CERTIFICATE_aqemie.pdf',
+      color: 'from-red-500 to-orange-500',
+      issuer: 'BCG via Forage',
+      date: '2025'
+    },
+    {
+      title: 'Delloitte Data Analytics Professional',
+      description: 'Comprehensive data analytics certification Delloitte',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1765290012/DELOITTE_DATA_ANALYTICS_lbhwnj.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765290012/DELOITTE_DATA_ANALYTICS_lbhwnj.pdf',
+      color: 'from-blue-500 to-cyan-500',
+      issuer: 'Delloitte',
+      date: '2025'
+    }
+  ];
 
   const stats = [
     { label: 'Dashboards Created', value: '50+', color: 'text-blue-400', icon: ChartBar },
@@ -153,6 +168,491 @@ export default function Portfolio() {
   ];
 
   const tabs = ['about', 'skills', 'dashboards', 'posters', 'certifications', 'contact'];
+
+  // Skills Section Completion
+  const renderSkills = () => (
+    <div className="space-y-12">
+      <div className="text-center space-y-4">
+        <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          The Arsenal
+        </h2>
+        <p className="text-xl text-slate-400">Tools, tech, and talents that get the job done</p>
+      </div>
+
+      {/* Skill Filter */}
+      <div className="flex flex-wrap justify-center gap-3">
+        {['all', 'dataAnalyst', 'visualization', 'dataTracking', 'cloudAI'].map((area) => (
+          <button
+            key={area}
+            onClick={() => setSelectedSkillArea(area)}
+            className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+              selectedSkillArea === area
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white scale-105'
+                : 'bg-slate-800 text-slate-400 hover:text-white'
+            }`}
+          >
+            {area === 'all' ? '🎯 All Skills' : 
+              area === 'dataAnalyst' ? '📊 Data Analysis & BI' : 
+              area === 'visualization' ? '📈 Visualization' : 
+              area === 'dataTracking' ? '🌐 Tracking & Analytics' : '☁️ Cloud & AI'}
+          </button>
+        ))}
+      </div>
+
+      {/* Skills Display */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {Object.entries(skills).map(([category, skillList]) => (
+          (selectedSkillArea === 'all' || selectedSkillArea === category) && (
+            <div key={category} className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
+              <div className="relative bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                    category === 'dataAnalyst' ? 'bg-blue-500/20' :
+                    category === 'visualization' ? 'bg-purple-500/20' : 
+                    category === 'dataTracking' ? 'bg-pink-500/20' : 'bg-cyan-500/20'
+                  }`}>
+                    {category === 'dataAnalyst' ? <BarChart3 className="text-blue-400" /> :
+                      category === 'visualization' ? <Activity className="text-purple-400" /> :
+                      category === 'dataTracking' ? <Globe className="text-pink-400" /> :
+                      <Cloud className="text-cyan-400" />}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">
+                      {category === 'dataAnalyst' ? 'Data Analysis & BI' :
+                        category === 'visualization' ? 'Data Visualization' : 
+                        category === 'dataTracking' ? 'Tracking & Analytics' : 'Cloud & AI'}
+                    </h3>
+                    <p className="text-sm text-slate-500">{skillList.length} skills</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  {skillList.map((skill, idx) => (
+                    <div key={idx} className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-slate-300">{skill.name}</span>
+                        <span className="font-semibold">{skill.level}%</span>
+                      </div>
+                      <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
+                        <div 
+                          className={`h-full rounded-full transition-all duration-1000 ${
+                            category === 'dataAnalyst' ? 'bg-gradient-to-r from-blue-500 to-cyan-500' :
+                            category === 'visualization' ? 'bg-gradient-to-r from-purple-500 to-pink-500' :
+                            category === 'dataTracking' ? 'bg-gradient-to-r from-pink-500 to-rose-500' :
+                            'bg-gradient-to-r from-cyan-500 to-blue-500'
+                          }`}
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )
+        ))}
+      </div>
+    </div>
+  );
+
+  // Dashboards Section
+  const renderDashboards = () => (
+    <div className="space-y-12">
+      <div className="text-center space-y-4">
+        <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
+          Dashboard Portfolio
+        </h2>
+        <p className="text-xl text-slate-400">Interactive data visualizations and business insights</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {dashboards.map((dashboard, idx) => (
+          <div key={idx} className="relative group">
+            <div className={`absolute inset-0 bg-gradient-to-r ${dashboard.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all`}></div>
+            <div className="relative bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 hover:scale-[1.02] transition-all">
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-r ${dashboard.color}`}>
+                  <dashboard.icon className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold">{dashboard.title}</h3>
+                  <p className="text-slate-400">{dashboard.category}</p>
+                </div>
+              </div>
+              
+              <p className="text-slate-300 mb-6 leading-relaxed">{dashboard.description}</p>
+              
+              <div className="flex gap-3">
+                <a
+                  href={dashboard.downloadUrl}
+                  download
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl hover:from-slate-700 hover:to-slate-800 transition-all border border-slate-700"
+                >
+                  <Download size={20} />
+                  <span>Download</span>
+                </a>
+                <button
+                  onClick={() => {
+                    setSelectedDashboard(dashboard);
+                    setShowPreview(true);
+                  }}
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
+                >
+                  <Eye size={20} />
+                  <span>Preview</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  // Posters Section
+  const renderPosters = () => (
+    <div className="space-y-12">
+      <div className="text-center space-y-4">
+        <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
+          Creative Designs
+        </h2>
+        <p className="text-xl text-slate-400">Marketing campaigns and visual storytelling</p>
+      </div>
+
+      {/* Poster Gallery */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posters.map((poster, idx) => (
+          <div key={idx} className="group relative">
+            <div className={`absolute inset-0 bg-gradient-to-r ${poster.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all`}></div>
+            <div className="relative bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 hover:scale-[1.02] transition-all">
+              <div className="aspect-square rounded-xl overflow-hidden mb-4 relative">
+                <img 
+                  src={poster.imageUrl} 
+                  alt={poster.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2">{poster.title}</h3>
+              <div className="flex items-center justify-between">
+                <span className="px-3 py-1 bg-slate-800/50 rounded-full text-sm">
+                  {poster.category}
+                </span>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      setSelectedPoster(poster);
+                      setIsModalOpen(true);
+                    }}
+                    className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+                  >
+                    <Maximize2 size={20} />
+                  </button>
+                  <a
+                    href={poster.downloadUrl}
+                    download
+                    className="p-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all"
+                  >
+                    <Download size={20} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Poster Modal */}
+      {isModalOpen && selectedPoster && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <div className="p-6 border-b border-slate-800 flex justify-between items-center">
+              <h3 className="text-2xl font-bold">{selectedPoster.title}</h3>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="p-2 rounded-xl hover:bg-slate-800 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <div className="p-6">
+              <div className="relative rounded-xl overflow-hidden bg-slate-800">
+                <img 
+                  src={selectedPoster.imageUrl} 
+                  alt={selectedPoster.title}
+                  className="w-full max-h-[60vh] object-contain"
+                  style={{ transform: `scale(${zoomLevel})` }}
+                />
+              </div>
+              
+              <div className="flex justify-between items-center mt-6">
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setZoomLevel(Math.max(0.5, zoomLevel - 0.1))}
+                    className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+                  >
+                    <ZoomOut size={20} />
+                  </button>
+                  <button
+                    onClick={() => setZoomLevel(Math.min(3, zoomLevel + 0.1))}
+                    className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+                  >
+                    <ZoomIn size={20} />
+                  </button>
+                  <button
+                    onClick={() => setZoomLevel(1)}
+                    className="px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+                  >
+                    Reset Zoom
+                  </button>
+                </div>
+                <a
+                  href={selectedPoster.downloadUrl}
+                  download
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
+                >
+                  <Download size={20} />
+                  <span>Download</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  // Certifications Section
+  const renderCertifications = () => (
+    <div className="space-y-12">
+      <div className="text-center space-y-4">
+        <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+          Certifications
+        </h2>
+        <p className="text-xl text-slate-400">Professional credentials and achievements</p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        {certifications.map((cert, idx) => (
+          <div key={idx} className="relative group">
+            <div className={`absolute inset-0 bg-gradient-to-r ${cert.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all`}></div>
+            <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800 hover:scale-[1.02] transition-all">
+              <div className="flex items-start gap-6 mb-6">
+                <div className={`w-16 h-16 rounded-xl flex items-center justify-center bg-gradient-to-r ${cert.color}`}>
+                  <cert.icon className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-2xl font-bold mb-2">{cert.title}</h3>
+                  <div className="flex items-center gap-4 text-sm text-slate-400">
+                    <span className="flex items-center gap-1">
+                      <Briefcase size={16} />
+                      {cert.issuer}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <GraduationCap size={16} />
+                      {cert.date}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-slate-300 mb-6 leading-relaxed">{cert.description}</p>
+              
+              <div className="flex gap-3">
+                <a
+                  href={cert.viewUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl hover:from-slate-700 hover:to-slate-800 transition-all border border-slate-700"
+                >
+                  <ExternalLink size={20} />
+                  <span>View</span>
+                </a>
+                <a
+                  href={cert.downloadUrl}
+                  download
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
+                >
+                  <Download size={20} />
+                  <span>Download</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  // Contact Section
+  const renderContact = () => (
+    <div className="space-y-12">
+      <div className="text-center space-y-4">
+        <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          Let's Connect
+        </h2>
+        <p className="text-xl text-slate-400">Get in touch for collaborations or opportunities</p>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-12">
+        {/* Contact Info */}
+        <div className="space-y-8">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 rounded-2xl blur-xl"></div>
+            <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <MessageSquare className="text-cyan-400" />
+                Contact Information
+              </h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                    <Mail className="text-cyan-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-400">Email</p>
+                    <p className="font-semibold">catherine@example.com</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                    <Phone className="text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-400">Phone</p>
+                    <p className="font-semibold">+1 (234) 567-8900</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                    <MapPin className="text-purple-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-slate-400">Location</p>
+                    <p className="font-semibold">Nairobi, Kenya</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Social Links */}
+              <div className="mt-8 pt-8 border-t border-slate-800">
+                <div className="flex gap-4">
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all"
+                  >
+                    <Linkedin size={20} />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl hover:from-slate-700 hover:to-slate-800 transition-all border border-slate-700"
+                  >
+                    <Github size={20} />
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="lg:col-span-2">
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl"></div>
+            <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <Send className="text-purple-400" />
+                Send a Message
+              </h3>
+              
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-400">Your Name</label>
+                    <div className="relative">
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                        <User size={20} className="text-slate-500" />
+                      </div>
+                      <input
+                        type="text"
+                        value={contactForm.name}
+                        onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
+                        className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-400">Email Address</label>
+                    <div className="relative">
+                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+                        <Mail size={20} className="text-slate-500" />
+                      </div>
+                      <input
+                        type="email"
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+                        className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-400">Subject</label>
+                  <input
+                    type="text"
+                    value={contactForm.subject}
+                    onChange={(e) => setContactForm({...contactForm, subject: e.target.value})}
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="Project inquiry or collaboration"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-slate-400">Message</label>
+                  <textarea
+                    value={contactForm.message}
+                    onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+                    rows="5"
+                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
+                    placeholder="Tell me about your project..."
+                  ></textarea>
+                </div>
+                
+                <button
+                  type="button"
+                  onClick={() => {
+                    // Handle form submission here
+                    alert('Message sent!');
+                    setContactForm({ name: '', email: '', subject: '', message: '' });
+                  }}
+                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all font-semibold text-lg flex items-center justify-center gap-3"
+                >
+                  <Send size={20} />
+                  <span>Send Message</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-slate-950 text-white overflow-hidden relative">
@@ -299,7 +799,7 @@ export default function Portfolio() {
                   desc: 'Turning complex data into actionable insights and beautiful visualizations',
                   gradient: 'from-red-600 to-orange-600',
                   emoji: '📊',
-                  skills: ['Excel', 'Power BI', 'SQL', 'Python']
+                  skills: ['Power BI', 'Tableau', 'SQL', 'Python']
                 },
                 { 
                   icon: Code, 
@@ -362,750 +862,102 @@ export default function Portfolio() {
           </div>
         )}
 
-           {/* Skills Section */}
-        {activeTab === 'skills' && (
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                The Arsenal
-              </h2>
-              <p className="text-xl text-slate-400">Tools, tech, and talents that get the job done</p>
-            </div>
-
-            {/* Skill Filter */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {['all', 'dataAnalyst', 'itSupport', 'digitalMarketing'].map((area) => (
-                <button
-                  key={area}
-                  onClick={() => setSelectedSkillArea(area)}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                    selectedSkillArea === area
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white scale-105'
-                      : 'bg-slate-800 text-slate-400 hover:text-white'
-                  }`}
-                >
-                  {area === 'all' ? '🎯 All Skills' : 
-                   area === 'dataAnalyst' ? '📊 Data' : 
-                   area === 'itSupport' ? '💻 IT' : '📈 Marketing'}
-                </button>
-              ))}
-            </div>
-
-            {/* Skills Display */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {Object.entries(skills).map(([category, skillList]) => (
-                (selectedSkillArea === 'all' || selectedSkillArea === category) && (
-                  <div key={category} className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-                    <div className="relative bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800">
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                          category === 'dataAnalyst' ? 'bg-blue-500/20' :
-                          category === 'itSupport' ? 'bg-purple-500/20' : 'bg-pink-500/20'
-                        }`}>
-                          {category === 'dataAnalyst' ? <BarChart3 className="text-blue-400" /> :
-                           category === 'itSupport' ? <Code className="text-purple-400" /> :
-                           <Megaphone className="text-pink-400" />}
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold">
-                            {category === 'dataAnalyst' ? 'Data Analyst' :
-                             category === 'itSupport' ? 'IT Support' : 'Digital Marketing'}
-                          </h3>
-                          <p className="text-sm text-slate-500">{skillList.length} skills</p>
-                        </div>
-                      </div>
-                      
-                      <div className="space-y-4">
-                        {skillList.map((skill, idx) => (
-                          <div key={idx} className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-slate-300">{skill.name}</span>
-                              <span className="font-semibold">{skill.level}%</span>
-                            </div>
-                            <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
-                              <div 
-                                className={`h-full rounded-full transition-all duration-1000 ${
-                                  category === 'dataAnalyst' ? 'bg-gradient-to-r from-blue-500 to-cyan-500' :
-                                  category === 'itSupport' ? 'bg-gradient-to-r from-purple-500 to-pink-500' :
-                                  'bg-gradient-to-r from-pink-500 to-rose-500'
-                                }`}
-                                style={{ width: `${skill.level}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )
-              ))}
-            </div>
-
-            {/* Certification & Education */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 rounded-2xl blur-xl"></div>
-                <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <Award className="text-yellow-400" />
-                    Tools & Technologies
-                  </h3>
-                  <div className="space-y-4">
-                    {[
-                      { name: 'Data Analysis', tools: 'Excel, Python, SQL, Power BI', icon: '📊' },
-                      { name: 'IT Support', tools: 'Windows/Linux, Networking, AWS', icon: '💻' },
-                      { name: 'Digital Marketing', tools: 'Google Analytics, SEO, Social Media', icon: '📈' },
-                      { name: 'Design', tools: 'Photoshop, Canva, Figma', icon: '🎨' }
-                    ].map((tech, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-4 bg-slate-800/50 rounded-xl hover:bg-slate-800 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <div className="text-2xl">{tech.icon}</div>
-                          <div>
-                            <div className="font-semibold">{tech.name}</div>
-                            <div className="text-sm text-slate-500">{tech.tools}</div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl"></div>
-                <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                  <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <GraduationCap className="text-purple-400" />
-                    Core Competencies
-                  </h3>
-                  <div className="space-y-4">
-                    {[
-                      { skill: 'Problem Solving', level: 'Expert' },
-                      { skill: 'Communication', level: 'Advanced' },
-                      { skill: 'Project Management', level: 'Advanced' },
-                      { skill: 'Team Collaboration', level: 'Expert' }
-                    ].map((comp, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-4 bg-slate-800/50 rounded-xl hover:bg-slate-800 transition-colors">
-                        <div>
-                          <div className="font-semibold">{comp.skill}</div>
-                          <div className="text-sm text-slate-500">Professional Skill</div>
-                        </div>
-                        <div className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                          comp.level === 'Expert' ? 'bg-green-500/20 text-green-400' :
-                          'bg-blue-500/20 text-blue-400'
-                        }`}>
-                          {comp.level}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Skills Section */}
+        {activeTab === 'skills' && renderSkills()}
 
         {/* Dashboards Section */}
-        {activeTab === 'dashboards' && (
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-red-400 to-purple-400 bg-clip-text text-transparent">
-                Excel Dashboards
-              </h2>
-              <p className="text-xl text-slate-400">Interactive dashboards for data visualization and analysis</p>
-            </div>
-
-            {/* Dashboard Grid */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {dashboards.map((dashboard, idx) => (
-                <div key={idx} className="group relative">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${dashboard.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all`}></div>
-                  <div className="relative bg-slate-900/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 h-full hover:scale-105 transition-all">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-r ${dashboard.color}`}>
-                        <dashboard.icon className="text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold">{dashboard.title}</h3>
-                        <span className="text-sm text-slate-500">{dashboard.category}</span>
-                      </div>
-                    </div>
-                    
-                    <p className="text-slate-400 mb-6">{dashboard.description}</p>
-                    
-<div className="flex gap-3">
-  <a 
-    href={dashboard.downloadUrl}
-    download
-    className="flex-1 bg-gradient-to-r from-red-600 to-pink-600 text-white font-semibold py-2.5 rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all flex items-center justify-center gap-2"
-  >
-    <Download size={18} />
-    Download
-  </a>
- 
-</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Dashboard Stats */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-purple-600/10 rounded-2xl blur-2xl"></div>
-              <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                <h3 className="text-2xl font-bold mb-6">Dashboard Capabilities</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {[
-                    { label: 'Data Sources', value: 'Multiple', color: 'text-red-400' },
-                    { label: 'Update Frequency', value: 'Real-time', color: 'text-purple-400' },
-                    { label: 'Visualizations', value: '20+ Types', color: 'text-pink-400' },
-                    { label: 'User Interactivity', value: 'High', color: 'text-cyan-400' }
-                  ].map((metric, idx) => (
-                    <div key={idx} className="text-center p-4 bg-slate-800/50 rounded-xl">
-                      <div className={`text-2xl md:text-3xl font-black ${metric.color} mb-2`}>{metric.value}</div>
-                      <div className="text-sm text-slate-400">{metric.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {activeTab === 'dashboards' && renderDashboards()}
 
         {/* Posters Section */}
-        {activeTab === 'posters' && (
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Creative Posters
-              </h2>
-              <p className="text-xl text-slate-400">Visual designs for marketing campaigns and events</p>
-            </div>
-
-            {/* Poster Grid */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {posters.map((poster, idx) => (
-                <div key={idx} className="group relative">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${poster.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all`}></div>
-                  <div className="relative bg-slate-900/90 backdrop-blur-xl rounded-2xl border border-slate-800 overflow-hidden hover:scale-105 transition-all">
-                    {/* Poster Image */}
-                    <div className="relative h-64 md:h-80 overflow-hidden">
-                      <img 
-                        src={poster.imageUrl} 
-                        alt={poster.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <span className="inline-block px-3 py-1 bg-slate-900/80 backdrop-blur-sm rounded-full text-sm text-slate-300">
-                          {poster.category}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    {/* Poster Info */}
-                    <div className="p-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-xl font-bold">{poster.title}</h3>
-                        <ImageIcon className="text-slate-500" />
-                      </div>
-                      
-                      <div className="flex gap-3">
-                        <button 
-  onClick={() => {
-    const index = posters.findIndex(p => p.id === poster.id);
-    setCurrentPosterIndex(index);
-    setSelectedPoster(poster);
-    setIsModalOpen(true);
-  }}
-  className="flex-1 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-semibold py-2.5 rounded-xl hover:shadow-lg hover:shadow-pink-500/25 transition-all"
->
-  View Full Size
-</button>
-<a 
-  href={poster.downloadUrl || poster.imageUrl}
-  download={`${poster.title.replace(/\s+/g, '_')}.png`}
-  className="px-4 py-2.5 bg-slate-800 text-slate-300 rounded-xl hover:bg-slate-700 transition-colors flex items-center gap-2"
->
-  <Download size={18} />
-</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-
-            {/* Design Tools */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600/10 to-purple-600/10 rounded-2xl blur-2xl"></div>
-              <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                <h3 className="text-2xl font-bold mb-6">Design Tools & Skills</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[
-                    { tool: 'Adobe Photoshop', level: 'Expert' },
-                    { tool: 'Canva', level: 'Advanced' },
-                    { tool: 'Figma', level: 'Intermediate' },
-                    { tool: 'Illustrator', level: 'Advanced' }
-                  ].map((item, idx) => (
-                    <div key={idx} className="p-4 bg-slate-800/50 rounded-xl text-center">
-                      <div className="font-semibold mb-1">{item.tool}</div>
-                      <div className="text-sm text-slate-400">{item.level}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {activeTab === 'posters' && renderPosters()}
 
         {/* Certifications Section */}
-        {activeTab === 'certifications' && (
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-red-400 to-purple-400 bg-clip-text text-transparent">
-                Certifications
-              </h2>
-              <p className="text-xl text-slate-400">Professional certifications validating my expertise</p>
-            </div>
-
-            {/* Certifications Grid */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {certifications.map((cert, idx) => (
-                <div key={idx} className="group relative">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${cert.color} rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-all`}></div>
-                  <div className="relative bg-slate-900/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 h-full hover:scale-105 transition-all">
-                    <div className="flex items-start gap-4 mb-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-r ${cert.color}`}>
-                        <cert.icon className="text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex justify-between items-start">
-                          <h3 className="text-xl font-bold">{cert.title}</h3>
-                          <span className="text-sm text-slate-500 bg-slate-800 px-2 py-1 rounded-full">
-                            {cert.date}
-                          </span>
-                        </div>
-                        <p className="text-sm text-slate-400 mt-1">Issued by: {cert.issuer}</p>
-                      </div>
-                    </div>
-                    
-                    <p className="text-slate-400 mb-6">{cert.description}</p>
-                    
-                   <div className="flex gap-3">
-  <a 
-    href={cert.viewUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex-1 bg-gradient-to-r from-red-600 to-pink-600 text-white font-semibold py-2.5 rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all flex items-center justify-center gap-2"
-  >
-    <FileText size={18} />
-    View Certificate
-  </a>
-  <a 
-    href={cert.downloadUrl}
-    download
-    className="px-4 py-2.5 bg-slate-800 text-slate-300 rounded-xl hover:bg-slate-700 transition-colors flex items-center gap-2"
-  >
-    <Download size={18} />
-    Download
-  </a>
-</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Certification Stats */}
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-purple-600/10 rounded-2xl blur-2xl"></div>
-              <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                <h3 className="text-2xl font-bold mb-6">Certification Overview</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {[
-                    { label: 'Total Certifications', value: '15+', color: 'text-red-400' },
-                    { label: 'Currently Valid', value: '12', color: 'text-green-400' },
-                    { label: 'Years Experience', value: '5+', color: 'text-purple-400' },
-                    { label: 'Renewal Frequency', value: 'Annual', color: 'text-cyan-400' }
-                  ].map((metric, idx) => (
-                    <div key={idx} className="text-center p-4 bg-slate-800/50 rounded-xl">
-                      <div className={`text-2xl md:text-3xl font-black ${metric.color} mb-2`}>{metric.value}</div>
-                      <div className="text-sm text-slate-400">{metric.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {activeTab === 'certifications' && renderCertifications()}
 
         {/* Contact Section */}
-        {activeTab === 'contact' && (
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-red-400 to-purple-400 bg-clip-text text-transparent">
-                Let's Connect
-              </h2>
-              <p className="text-xl text-slate-400">Get in touch for collaborations or opportunities</p>
+        {activeTab === 'contact' && renderContact()}
+      </main>
+
+      {/* Preview Modal */}
+      {showPreview && selectedDashboard && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-xl z-50 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+            <div className="p-6 border-b border-slate-800 flex justify-between items-center">
+              <h3 className="text-2xl font-bold">{selectedDashboard.title}</h3>
+              <button
+                onClick={() => setShowPreview(false)}
+                className="p-2 rounded-xl hover:bg-slate-800 transition-colors"
+              >
+                <X size={24} />
+              </button>
             </div>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Contact Form */}
-<form 
-  action="https://formspree.io/f/YOUR_FORM_ID" 
-  method="POST"
-  className="space-y-4 md:space-y-6"
->
- 
-  <div className="space-y-1 md:space-y-2">
-    <label className="text-xs md:text-sm font-medium text-slate-400">Name</label>
-    <input 
-      type="text" 
-      name="name"
-      required
-      className="w-full bg-slate-800/50 border border-slate-700 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-      placeholder="Your Name"
-    />
-  </div>
- 
-  <div className="space-y-1 md:space-y-2">
-    <label className="text-xs md:text-sm font-medium text-slate-400">Email</label>
-    <input 
-      type="email" 
-      name="email"
-      required
-      className="w-full bg-slate-800/50 border border-slate-700 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-      placeholder="your@email.com"
-    />
-  </div>
-  
-  <div className="space-y-1 md:space-y-2">
-    <label className="text-xs md:text-sm font-medium text-slate-400">Inquiry Type</label>
-    <select 
-      name="inquiryType"
-      className="w-full bg-slate-800/50 border border-slate-700 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-    >
-      <option>Data Analysis Project</option>
-      <option>Dashboard Development</option>
-      <option>Design/Marketing Work</option>
-      <option>IT Support Services</option>
-      <option>General Inquiry</option>
-    </select>
-  </div>
-  
- 
-  <div className="space-y-1 md:space-y-2">
-    <label className="text-xs md:text-sm font-medium text-slate-400">Message</label>
-    <textarea 
-      name="message"
-      rows="3"
-      required
-      className="w-full bg-slate-800/50 border border-slate-700 rounded-lg md:rounded-xl px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent resize-y min-h-[100px] md:min-h-[120px]"
-      placeholder="Your message..."
-    />
-  </div>
-  
-  <button
-    type="submit"
-    className="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white font-semibold py-2.5 md:py-3 rounded-lg md:rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all text-sm md:text-base"
-  >
-    Send Message
-  </button>
-  
-  {/* Mobile Optimization Note (Optional) */}
-  <div className="md:hidden text-center pt-2">
-    <p className="text-xs text-slate-500">All fields are required</p>
-  </div>
-</form>
-
-              {/* Contact Info */}
-              <div className="space-y-6">
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl blur-xl"></div>
-                  <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                    <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-                    <div className="space-y-4">
-                      {[
-                        { icon: Mail, label: 'Email', value: 'catherine.kamau381@gmail.com', color: 'text-red-400' },
-                        { icon: Briefcase, label: 'Status', value: 'Open for Opportunities', color: 'text-green-400' },
-                        { icon: Zap, label: 'Response Time', value: 'Within 24 hours', color: 'text-yellow-400' }
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-4 p-4 bg-slate-800/50 rounded-xl">
-                          <div className="w-12 h-12 rounded-xl bg-slate-700/50 flex items-center justify-center">
-                            <item.icon className="text-slate-400" />
-                          </div>
-                          <div>
-                            <div className="text-sm text-slate-500">{item.label}</div>
-                            <div className={`font-semibold ${item.color}`}>{item.value}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+            
+            <div className="p-6">
+              <div className="aspect-video rounded-xl bg-slate-800 flex items-center justify-center mb-6">
+                <div className="text-center">
+                  <ChartBar className="w-16 h-16 text-slate-600 mx-auto mb-4" />
+                  <p className="text-slate-500">Dashboard preview would be displayed here</p>
+                  <p className="text-sm text-slate-600 mt-2">Click download to get the actual file</p>
                 </div>
-
-                {/* Social Links */}
-                <div className="relative group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600/20 to-red-600/20 rounded-2xl blur-xl"></div>
-                  <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-800">
-                    <h3 className="text-2xl font-bold mb-6">Connect With Me</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                      {[
-                        { icon: Linkedin, label: 'LinkedIn', color: 'from-blue-600 to-blue-400', url: 'https://linkedin.com/in/catherine-kamau-98b83a32' },
-                        { icon: Github, label: 'GitHub', color: 'from-slate-600 to-slate-400', url: 'https://github.com/CATHERINEKAMAU' },
-                        { icon: Mail, label: 'Email', color: 'from-red-600 to-red-400', url: 'catherine.kamau381@gmail.com' },
-                        { icon: FileText, label: 'Resume', color: 'from-purple-600 to-purple-400', url: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1765291785/CATHERINE_KAMAU_IDT_DATA_ANALYST_ckpvjc.pdf' }
-                      ].map((social, idx) => (
-                        <a
-                          key={idx}
-                          href={social.url}
-                          className="group relative overflow-hidden rounded-xl aspect-square"
-                        >
-                          <div className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-80 group-hover:opacity-100 transition-all`}></div>
-                          <div className="relative h-full flex flex-col items-center justify-center p-4">
-                            <social.icon size={28} />
-                            <div className="mt-2 text-sm font-semibold">{social.label}</div>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                  </div>
+              </div>
+              
+              <div className="flex justify-between items-center">
+                <div className="text-slate-400">
+                  <p className="text-sm">File format: .xlsx</p>
+                  <p className="text-sm">Category: {selectedDashboard.category}</p>
                 </div>
+                <a
+                  href={selectedDashboard.downloadUrl}
+                  download
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
+                >
+                  <Download size={20} />
+                  <span>Download Dashboard</span>
+                </a>
               </div>
             </div>
           </div>
-        )}
-      </main>
+        </div>
+      )}
 
       {/* Footer */}
-      <footer className="relative border-t border-slate-800 mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-500 rounded-xl flex items-center justify-center font-black">
-                CK
+      <footer className="relative mt-20 py-8 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-center md:text-left">
+              <div className="font-black text-xl bg-gradient-to-r from-red-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                Catherine Kamau
               </div>
-              <div>
-                <div className="font-bold">Catherine Kamau</div>
-               
-              </div>
+              <p className="text-sm text-slate-500">© 2025 All rights reserved</p>
             </div>
             
-            <div className="text-slate-500 text-sm text-center md:text-right">
-            
-              <p className="mt-1">© {new Date().getFullYear()} All rights reserved</p>
+            <div className="flex gap-4">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+              >
+                <Linkedin size={20} />
+              </a>
+              <a
+                href="https://github.com/CATHERINEKAMAU"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+              >
+                <Github size={20} />
+              </a>
+              <a
+                href="mailto:catherine@example.com"
+                className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
+              >
+                <Mail size={20} />
+              </a>
             </div>
           </div>
         </div>
       </footer>
-
-      {isModalOpen && (
-  <div className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-4">
-    <div className="relative max-w-6xl w-full max-h-[90vh]">
-      {/* Close button */}
-      <button
-        onClick={() => {
-          setIsModalOpen(false);
-          setSelectedPoster(null);
-          setZoomLevel(1);
-        }}
-        className="absolute -top-12 right-0 text-white hover:text-red-400 transition-colors z-10 p-2"
-      >
-        <X size={32} />
-      </button>
-      
-      {/* Navigation arrows */}
-      {posters.length > 1 && (
-        <>
-          <button
-            onClick={() => {
-              const newIndex = currentPosterIndex === 0 ? posters.length - 1 : currentPosterIndex - 1;
-              setCurrentPosterIndex(newIndex);
-              setSelectedPoster(posters[newIndex]);
-              setZoomLevel(1);
-            }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-3 rounded-full transition-all z-10"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={() => {
-              const newIndex = currentPosterIndex === posters.length - 1 ? 0 : currentPosterIndex + 1;
-              setCurrentPosterIndex(newIndex);
-              setSelectedPoster(posters[newIndex]);
-              setZoomLevel(1);
-            }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white p-3 rounded-full transition-all z-10"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </>
-      )}
-      
-      {/* Zoom controls */}
-      <div className="absolute top-4 right-4 flex gap-2 z-10">
-        <button
-          onClick={() => setZoomLevel(prev => Math.min(prev + 0.25, 3))}
-          className="bg-black/50 hover:bg-black/80 text-white p-2 rounded-lg transition-all"
-          disabled={zoomLevel >= 3}
-        >
-          <ZoomIn size={20} />
-        </button>
-        <button
-          onClick={() => setZoomLevel(prev => Math.max(prev - 0.25, 0.5))}
-          className="bg-black/50 hover:bg-black/80 text-white p-2 rounded-lg transition-all"
-          disabled={zoomLevel <= 0.5}
-        >
-          <ZoomOut size={20} />
-        </button>
-        <button
-          onClick={() => setZoomLevel(1)}
-          className="bg-black/50 hover:bg-black/80 text-white p-2 rounded-lg transition-all text-sm px-3"
-        >
-          Reset
-        </button>
-      </div>
-      
-      {/* Poster counter */}
-      <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm z-10">
-        {currentPosterIndex + 1} / {posters.length}
-      </div>
-      
-      {/* Modal content */}
-      <div className="bg-slate-900 rounded-2xl overflow-hidden h-full">
-        {/* Image container */}
-        <div className="relative h-[60vh] overflow-auto bg-slate-950">
-          <div className="flex items-center justify-center h-full p-4">
-            <img 
-              src={selectedPoster?.imageUrl} 
-              alt={selectedPoster?.title}
-              className="transition-transform duration-200"
-              style={{ 
-                transform: `scale(${zoomLevel})`,
-                maxWidth: '100%',
-                maxHeight: '100%',
-                objectFit: 'contain'
-              }}
-            />
-          </div>
-        </div>
-        
-        {/* Info panel */}
-        <div className="p-6 border-t border-slate-800">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-4">
-            <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-2">{selectedPoster?.title}</h3>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="px-3 py-1 bg-slate-800 rounded-full text-sm">
-                  {selectedPoster?.category}
-                </span>
-                <span className="text-sm text-slate-500">
-                  Zoom: {zoomLevel.toFixed(1)}x
-                </span>
-              </div>
-              <p className="text-slate-400">{selectedPoster?.description}</p>
-            </div>
-            
-            <div className="flex gap-3">
-              <a 
-                href={selectedPoster?.imageUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition-all flex items-center gap-2"
-              >
-                <Maximize2 size={18} />
-                Open in New Tab
-              </a>
-<a 
-  href={selectedPoster?.downloadUrl || selectedPoster?.imageUrl}
-  download={`${selectedPoster?.title.replace(/\s+/g, '_')}.png`}
-  className="px-6 py-2.5 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-pink-500/25 transition-all flex items-center gap-2"
->
-  <Download size={18} />
-  Download
-</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
-
-{/* Preview Modal */}
-{showPreview && selectedDashboard && (
-  <div 
-    className="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 flex items-center justify-center p-4"
-    onClick={() => {
-      setShowPreview(false);
-      setSelectedDashboard(null);
-    }}
-  >
-    <div 
-      className="relative max-w-4xl w-full max-h-[90vh] bg-slate-900 rounded-2xl overflow-hidden"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {/* Close button */}
-      <button
-        onClick={() => {
-          setShowPreview(false);
-          setSelectedDashboard(null);
-        }}
-        className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/80 text-white p-2 rounded-full transition-all"
-      >
-        <X size={24} />
-      </button>
-      
-      {/* Preview Content */}
-      <div className="p-6">
-        <div className="flex items-center gap-4 mb-6">
-          <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-r ${selectedDashboard.color}`}>
-            <selectedDashboard.icon className="text-white" />
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold">{selectedDashboard.title}</h3>
-            <p className="text-slate-400">{selectedDashboard.category}</p>
-          </div>
-        </div>
-        
-        {/* Preview Image */}
-        <div className="relative h-96 bg-slate-800 rounded-xl overflow-hidden mb-6">
-          <img 
-            src={selectedDashboard.previewUrl} 
-            alt={`${selectedDashboard.title} Preview`}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-6">
-            <div className="text-white">
-              <p className="text-sm opacity-75">Preview image - Download to view full dashboard</p>
-            </div>
-          </div>
-        </div>
-        
-        {/* Download Button */}
-        <div className="flex justify-between items-center">
-          <div>
-            <p className="text-slate-400">{selectedDashboard.description}</p>
-          </div>
-          <div className="flex gap-3">
-            <a 
-              href={selectedDashboard.downloadUrl}
-              download
-              className="px-6 py-2.5 bg-gradient-to-r from-red-600 to-pink-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-red-500/25 transition-all flex items-center gap-2"
-            >
-              <Download size={18} />
-              Download Excel File
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-)}
-
     </div>
   );
 }
