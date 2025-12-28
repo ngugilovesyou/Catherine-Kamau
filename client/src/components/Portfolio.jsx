@@ -174,7 +174,7 @@ export default function Portfolio() {
     <div className="space-y-12">
       <div className="text-center space-y-4">
         <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          The Arsenal
+          My Stack
         </h2>
         <p className="text-xl text-slate-400">Tools, tech, and talents that get the job done</p>
       </div>
