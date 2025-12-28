@@ -750,7 +750,7 @@ export default function Portfolio() {
                 <input 
                   type="hidden" 
                   name="access_key" 
-                  value="YOUR_ACCESS_KEY_HERE" 
+                  value={import.meta.env.VITE_W3FORMS_ACCESS_KEY}
                 />
                 
               
