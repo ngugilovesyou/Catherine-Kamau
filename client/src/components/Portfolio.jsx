@@ -139,6 +139,16 @@ export default function Portfolio() {
 
   const certifications = [
     {
+      title: 'Power BI for Beginners',
+      description: 'Certification in Power BI fundamentals for data visualization and business intelligence.',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952133/POWER_BI_CERTIFICATE_p5udk7.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952133/POWER_BI_CERTIFICATE_p5udk7.pdf',
+      color: 'from-yellow-500 to-orange-500',
+      issuer: 'Power BI Training',
+      date: 'September 2024'
+    },
+    {
   title: 'Bachelor of Business Information Technology',
   description: 'Second Class Honours (Upper Division) degree from Jomo Kenyatta University of Agriculture and Technology.',
   icon: Award,
@@ -149,6 +159,36 @@ export default function Portfolio() {
   date: 'November 2024'
     },
     {
+      title: 'Data Analysis in Excel',
+      description: 'DataCamp certification for completing Data Analysis in Excel course (3 hours).',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952132/DATA_ANALYSIS_IN_EXCEL_CERTIFICATE_vfdqp6.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952132/DATA_ANALYSIS_IN_EXCEL_CERTIFICATE_vfdqp6.pdf',
+      color: 'from-green-600 to-lime-600',
+      issuer: 'DataCamp',
+      date: 'February 2025'
+    },
+    {
+      title: 'Understanding Machine Learning',
+      description: 'DataCamp certification for completing Understanding Machine Learning course (2 hours).',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952130/MACHINE_LEARNING_CERT_omfny6.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952130/MACHINE_LEARNING_CERT_omfny6.pdf',
+      color: 'from-purple-500 to-pink-500',
+      issuer: 'DataCamp',
+      date: 'March 2025'
+    },
+    {
+      title: 'Understanding Data Topics',
+      description: 'DataCamp certification for completing Understanding Data Topics course (10 hours).',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952125/certificate_-DATA_TOPICS_vsgyjz.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952125/certificate_-DATA_TOPICS_vsgyjz.pdf',
+      color: 'from-teal-500 to-cyan-500',
+      issuer: 'DataCamp',
+      date: 'March 2025'
+    },
+    {
       title: 'BCG Forage GenAI Certificate',
       description: 'Awarded for completing a job simulation in GenAI and data processing for BCG via Forage.',
       icon: Award,
@@ -156,7 +196,7 @@ export default function Portfolio() {
       downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765290012/BCG-FORAGE_GEN_AI_CERTIFICATE_aqemie.pdf',
       color: 'from-red-500 to-orange-500',
       issuer: 'BCG via Forage',
-      date: '2025'
+      date: 'May 2025'
     },
     {
       title: 'Delloitte Data Analytics Professional',
@@ -166,7 +206,17 @@ export default function Portfolio() {
       downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1765290012/DELOITTE_DATA_ANALYTICS_lbhwnj.pdf',
       color: 'from-blue-500 to-cyan-500',
       issuer: 'Delloitte',
-      date: '2025'
+      date: 'June 2025'
+    },
+    {
+      title: 'Data Visualisation: Empowering Business with Effective Insights',
+      description: 'Tata via Forage certification covering business scenarios, visual selection, and insights communication.',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952125/TATA_CERTIFICATE_ogv9w4.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952125/TATA_CERTIFICATE_ogv9w4.pdf',
+      color: 'from-indigo-500 to-purple-500',
+      issuer: 'Tata via Forage',
+      date: 'June 2025'
     },
     {
       title: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate',
@@ -176,6 +226,16 @@ export default function Portfolio() {
       downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952130/ORACLE_Gnerative_AI_Associate_gqyxeg.pdf',
       color: 'from-red-600 to-red-800',
       issuer: 'Oracle',
+      date: 'July 2025'
+    },
+    {
+      title: 'Databricks Certification',
+      description: 'Databricks platform certification valid through July 2027.',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952130/DATABRICKS_CERTIFICATE_y2805k.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952130/DATABRICKS_CERTIFICATE_y2805k.pdf',
+      color: 'from-orange-600 to-red-600',
+      issuer: 'Databricks',
       date: 'July 2025'
     },
     {
@@ -189,26 +249,6 @@ export default function Portfolio() {
       date: 'September 2025'
     },
     {
-      title: 'Intermediate SQL',
-      description: 'DataCamp certification for successfully completing Intermediate SQL course (4 hours).',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952124/INTERMEDIATE_SQL_dj3xk7.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952124/INTERMEDIATE_SQL_dj3xk7.pdf',
-      color: 'from-green-500 to-emerald-500',
-      issuer: 'DataCamp',
-      date: 'December 2025'
-    },
-    {
-      title: 'Understanding Machine Learning',
-      description: 'DataCamp certification for completing Understanding Machine Learning course (2 hours).',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952130/MACHINE_LEARNING_CERT_omfny6.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952130/MACHINE_LEARNING_CERT_omfny6.pdf',
-      color: 'from-purple-500 to-pink-500',
-      issuer: 'DataCamp',
-      date: 'March 2025'
-    },
-    {
       title: 'Machine Learning with Python',
       description: 'IBM certification for successfully completing Machine Learning with Python course.',
       icon: Award,
@@ -217,57 +257,7 @@ export default function Portfolio() {
       color: 'from-blue-600 to-indigo-600',
       issuer: 'IBM Cognitive Class',
       date: 'October 2025'
-    },
-    {
-      title: 'Understanding Data Topics',
-      description: 'DataCamp certification for completing Understanding Data Topics course (10 hours).',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952125/certificate_-DATA_TOPICS_vsgyjz.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952125/certificate_-DATA_TOPICS_vsgyjz.pdf',
-      color: 'from-teal-500 to-cyan-500',
-      issuer: 'DataCamp',
-      date: 'March 2025'
-    },
-    {
-      title: 'Data Analysis in Excel',
-      description: 'DataCamp certification for completing Data Analysis in Excel course (3 hours).',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952132/DATA_ANALYSIS_IN_EXCEL_CERTIFICATE_vfdqp6.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952132/DATA_ANALYSIS_IN_EXCEL_CERTIFICATE_vfdqp6.pdf',
-      color: 'from-green-600 to-lime-600',
-      issuer: 'DataCamp',
-      date: 'February 2025'
-    },
-    {
-      title: 'Power BI for Beginners',
-      description: 'Certification in Power BI fundamentals for data visualization and business intelligence.',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952133/POWER_BI_CERTIFICATE_p5udk7.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952133/POWER_BI_CERTIFICATE_p5udk7.pdf',
-      color: 'from-yellow-500 to-orange-500',
-      issuer: 'Power BI Training',
-      date: 'September 2024'
-    },
-    {
-      title: 'Databricks Certification',
-      description: 'Databricks platform certification valid through July 2027.',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952130/DATABRICKS_CERTIFICATE_y2805k.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952130/DATABRICKS_CERTIFICATE_y2805k.pdf',
-      color: 'from-orange-600 to-red-600',
-      issuer: 'Databricks',
-      date: 'July 2025'
-    },
-    {
-      title: 'Data Visualisation: Empowering Business with Effective Insights',
-      description: 'Tata via Forage certification covering business scenarios, visual selection, and insights communication.',
-      icon: Award,
-      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952125/TATA_CERTIFICATE_ogv9w4.pdf',
-      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952125/TATA_CERTIFICATE_ogv9w4.pdf',
-      color: 'from-indigo-500 to-purple-500',
-      issuer: 'Tata via Forage',
-      date: 'June 2025'
-    },
+    }, 
     {
       title: 'Virtual Assistant Certificate',
       description: 'Certificate in Virtual Assistant fundamentals and introduction.',
@@ -277,7 +267,17 @@ export default function Portfolio() {
       color: 'from-pink-500 to-rose-500',
       issuer: 'EduCourse',
       date: 'December 2025'
-    }
+    },
+    {
+      title: 'Intermediate SQL',
+      description: 'DataCamp certification for successfully completing Intermediate SQL course (4 hours).',
+      icon: Award,
+      viewUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/v1766952124/INTERMEDIATE_SQL_dj3xk7.pdf',
+      downloadUrl: 'https://res.cloudinary.com/dxwzdftzm/image/upload/fl_attachment/v1766952124/INTERMEDIATE_SQL_dj3xk7.pdf',
+      color: 'from-green-500 to-emerald-500',
+      issuer: 'DataCamp',
+      date: 'December 2025'
+    },
   ];
 
   const stats = [
