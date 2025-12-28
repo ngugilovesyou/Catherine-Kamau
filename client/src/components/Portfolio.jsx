@@ -635,7 +635,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400">Email</p>
-                    <p className="font-semibold">catherine@example.com</p>
+                    <p className="font-semibold">catherine.kamau381@gmail.com</p>
                   </div>
                 </div>
                 
@@ -645,7 +645,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400">Phone</p>
-                    <p className="font-semibold">+1 (234) 567-8900</p>
+                    <p className="font-semibold">+254701029671</p>
                   </div>
                 </div>
                 
@@ -655,7 +655,7 @@ export default function Portfolio() {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400">Location</p>
-                    <p className="font-semibold">Nairobi, Kenya</p>
+                    <p className="font-semibold">Kiambu, Kenya</p>
                   </div>
                 </div>
               </div>
@@ -664,7 +664,7 @@ export default function Portfolio() {
               <div className="mt-8 pt-8 border-t border-slate-800">
                 <div className="flex gap-4">
                   <a
-                    href="https://linkedin.com"
+                    href="https://linkedin.com/in/catherine-kamau-98b83a326"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all"
@@ -673,7 +673,7 @@ export default function Portfolio() {
                     <span>LinkedIn</span>
                   </a>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/CATHERINEKAMAU"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl hover:from-slate-700 hover:to-slate-800 transition-all border border-slate-700"
@@ -696,77 +696,112 @@ export default function Portfolio() {
                 <Send className="text-purple-400" />
                 Send a Message
               </h3>
-              
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-400">Your Name</label>
-                    <div className="relative">
-                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                        <User size={20} className="text-slate-500" />
-                      </div>
-                      <input
-                        type="text"
-                        value={contactForm.name}
-                        onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
-                        className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-slate-400">Email Address</label>
-                    <div className="relative">
-                      <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                        <Mail size={20} className="text-slate-500" />
-                      </div>
-                      <input
-                        type="email"
-                        value={contactForm.email}
-                        onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
-                        className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                        placeholder="john@example.com"
-                      />
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-400">Subject</label>
-                  <input
-                    type="text"
-                    value={contactForm.subject}
-                    onChange={(e) => setContactForm({...contactForm, subject: e.target.value})}
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                    placeholder="Project inquiry or collaboration"
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-400">Message</label>
-                  <textarea
-                    value={contactForm.message}
-                    onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
-                    rows="5"
-                    className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
-                    placeholder="Tell me about your project..."
-                  ></textarea>
-                </div>
-                
-                <button
-                  type="button"
-                  onClick={() => {
-                    // Handle form submission here
-                    alert('Message sent!');
-                    setContactForm({ name: '', email: '', subject: '', message: '' });
-                  }}
-                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all font-semibold text-lg flex items-center justify-center gap-3"
-                >
-                  <Send size={20} />
-                  <span>Send Message</span>
-                </button>
-              </form>
+              <form 
+  className="space-y-6"
+  action="https://api.web3forms.com/submit"
+  method="POST"
+>
+  {/* W3Forms Access Key - Replace with your own */}
+  <input 
+    type="hidden" 
+    name="access_key" 
+    value="YOUR_ACCESS_KEY_HERE" 
+  />
+  
+  {/* Honeypot spam protection */}
+  <input 
+    type="checkbox" 
+    name="botcheck" 
+    className="hidden" 
+    style={{display: 'none'}}
+  />
+
+  <div className="grid md:grid-cols-2 gap-6">
+    <div className="space-y-2">
+      <label htmlFor="name" className="text-sm font-medium text-slate-400">
+        Your Name
+      </label>
+      <div className="relative">
+        <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+          <User size={20} className="text-slate-500" />
+        </div>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          value={contactForm.name}
+          onChange={(e) => setContactForm({...contactForm, name: e.target.value})}
+          className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+          placeholder="John Doe"
+        />
+      </div>
+    </div>
+    
+    <div className="space-y-2">
+      <label htmlFor="email" className="text-sm font-medium text-slate-400">
+        Email Address
+      </label>
+      <div className="relative">
+        <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+          <Mail size={20} className="text-slate-500" />
+        </div>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          value={contactForm.email}
+          onChange={(e) => setContactForm({...contactForm, email: e.target.value})}
+          className="w-full pl-12 pr-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+          placeholder="john@example.com"
+        />
+      </div>
+    </div>
+  </div>
+  
+  <div className="space-y-2">
+    <label htmlFor="subject" className="text-sm font-medium text-slate-400">
+      Subject
+    </label>
+    <input
+      type="text"
+      name="subject"
+      id="subject"
+      value={contactForm.subject}
+      onChange={(e) => setContactForm({...contactForm, subject: e.target.value})}
+      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+      placeholder="Project inquiry or collaboration"
+    />
+  </div>
+  
+  <div className="space-y-2">
+    <label htmlFor="message" className="text-sm font-medium text-slate-400">
+      Message
+    </label>
+    <textarea
+      name="message"
+      id="message"
+      required
+      rows="5"
+      value={contactForm.message}
+      onChange={(e) => setContactForm({...contactForm, message: e.target.value})}
+      className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
+      placeholder="Tell me about your project..."
+    ></textarea>
+  </div>
+  
+  {/* Success/Error Messages */}
+  <div id="result" className="hidden text-center"></div>
+  
+  <button
+    type="submit"
+    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all font-semibold text-lg flex items-center justify-center gap-3"
+  >
+    <Send size={20} />
+    <span>Send Message</span>
+  </button>
+</form>
             </div>
           </div>
         </div>
