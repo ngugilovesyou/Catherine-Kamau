@@ -1053,7 +1053,7 @@ export default function Portfolio() {
             
             <div className="flex gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/catherine-kamau-98b83a326"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
@@ -1069,7 +1069,7 @@ export default function Portfolio() {
                 <Github size={20} />
               </a>
               <a
-                href="mailto:catherine@example.com"
+                href="mailto:catherine.kamau381@gmail.com"
                 className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors"
               >
                 <Mail size={20} />
