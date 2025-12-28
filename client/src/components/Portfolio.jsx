@@ -1048,7 +1048,7 @@ export default function Portfolio() {
               <div className="font-black text-xl bg-gradient-to-r from-red-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
                 Catherine Kamau
               </div>
-              <p className="text-sm text-slate-500">© 2025 All rights reserved</p>
+            <p className="text-sm text-gray-500">© {new Date().getFullYear()} All rights reserved</p>
             </div>
             
             <div className="flex gap-4">
