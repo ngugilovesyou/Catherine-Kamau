@@ -65,6 +65,61 @@ export default function Portfolio() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  const handleFormSubmit = async (e) => {
+  e.preventDefault();
+  
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const resultDiv = document.getElementById('result');
+  
+  // Disable button and show loading
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span>Sending...</span>';
+  
+  try {
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      // Success
+      resultDiv.className = "text-green-500 text-center py-2";
+      resultDiv.textContent = "Message sent successfully!";
+      setContactForm({ name: '', email: '', subject: '', message: '' });
+    } else {
+      // Error
+      resultDiv.className = "text-red-500 text-center py-2";
+      resultDiv.textContent = result.message || "Something went wrong!";
+    }
+    
+    resultDiv.classList.remove('hidden');
+    
+    // Scroll to result
+    resultDiv.scrollIntoView({ behavior: 'smooth' });
+    
+  } catch (error) {
+    resultDiv.className = "text-red-500 text-center py-2";
+    resultDiv.textContent = "Network error. Please try again.";
+    resultDiv.classList.remove('hidden');
+  } finally {
+    // Re-enable button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = `
+      <Send size={20} />
+      <span>Send Message</span>
+    `;
+    
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      resultDiv.classList.add('hidden');
+    }, 5000);
+  }
+};
+
   const skills = {
     dataAnalyst: [
       { name: 'Power BI', level: 95 },
@@ -699,7 +754,7 @@ export default function Portfolio() {
               <form 
   className="space-y-6"
   action="https://api.web3forms.com/submit"
-  method="POST"
+  onSubmit={handleFormSubmit}
 >
   {/* W3Forms Access Key - Replace with your own */}
   <input 
